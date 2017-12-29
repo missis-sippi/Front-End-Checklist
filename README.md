@@ -1,50 +1,50 @@
-# Front-End Checklist
-[![Contributors](https://img.shields.io/github/contributors/thedaviddias/Front-End-Checklist.svg)](https://github.com/thedaviddias/Front-End-Checklist/graphs/contributors)
-[![CC0](https://img.shields.io/badge/license-CC0-green.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+# Чек-лист фронтенда
+[![Соавторы](https://img.shields.io/github/contributors/thedaviddias/Front-End-Checklist.svg)](https://github.com/thedaviddias/Front-End-Checklist/graphs/contributors)
+[![Лицензия CC0](https://img.shields.io/badge/license-CC0-green.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-The **Front-End Checklist** is an exhaustive list of all elements you need to have / to test before launching your site / page HTML to production.
+**Чек-лист фронтенда** — исчерпывающий список элементов, которые необходимо внедрить и проверить перед запуском вашего сайта/HTML-страницы.
 
-It is based on Front-End developers' years of experience, with the additions coming from some other open-source checklists.
+Список основан на годах опыта фронтенд-разработки, с некоторыми дополнениями из других чек-листов, находящихся в открытом доступе.
 
-## Table of Contents
+## Содержание
 
-1. **[How to use](#how-to-use)**
-2. **[Head](#head)**
+1. **[Как использовать](#Как-использовать)**
+2. **[Раздел заголовка — тег `<head>`](#Раздел заголовка--тег-head)**
 3. **[HTML](#html)**
-4. **[Webfonts](#webfonts)**
+4. **[Веб-шрифты](#Веб-шрифты)**
 5. **[CSS](#css)**
-6. **[Images](#images)**
+6. **[Изображения](#Изображения)**
 7. **[JavaScript](#javascript)**
-8. **[Security](#security)**
-9. **[Performance](#performance-1)**
-10. **[Accessibility](#accessibility)**
+8. **[Безопасность](#security)**
+9. **[Производительность](#performance-1)**
+10. **[Доступность](#accessibility)**
 11. **[SEO](#seo)**
-12. **[Translation](#translation)**
-13. **[Contributing](#contributing)**
+12. **[Перевод](#translation)**
+13. **[Содействие](#contributing)**
 
-## How to use?
+## Как использовать
 
-All items in the **Front-End Checklist** are required for the majority of the projects, but some elements can be omitted or are not essential (in the case of an administration web app, you may not need RSS feed for example). We choose to use 3 levels of flexibility:
+Для большинства проектов необходимо соблюдать все пункты **чек-листа фронтенда**, однако некоторые элементы могут быть опущены или не являются необходимыми в конкретном случае (например, в случае управления веб-приложением RSS-лента не понадобится). Будем использовать 3 уровня важности требований:
 
-* ![Low][low_img] means that the item is **recommended** but can be omitted in some particular situations.
-* ![Medium][medium_img] means that the item is **highly recommended** and can eventually be omitted in some really particular cases. Some elements, if omitted, can have bad repercussions in terms of performance or SEO.
-* ![High][high_img] means that the item **can't be omitted** by any reason. You may cause a dysfunction in your page or have accessibility or SEO issues. The testing priority needs to be on these elements first.
+* ![Низкий][low_img] означает, что элемент **рекомендуется** использовать, но в некоторых ситуациях его можно опустить.
+* ![Средний][medium_img] означает, что этот элемент **настоятельно рекомендуется** использовать, и пренебречь им можно лишь в отдельных исключительных случаях. Отсутствие некоторых таких элементов может негативно повлиять на производительность или поисковую оптимизацию сайта (SEO).
+* ![Высокий][high_img] означает, что элемент **ни в коем случае** нельзя исключать. Отсутствие элемента может вызвать нарушение функциональности сайта, проблемы с доступностью и SEO. В первую очередь при тестировании необходимо проверить данные элементы.
 
-Some resources possess an emoticon to help you understand which type of content / help you may find on the checklist:
+Ссылки на некоторые ресурсы помечены специальными иконками, помогающими определить тип контента:
 
-* 📖: documentation or article
-* 🛠: online tool / testing tool
-* 📹: media or video content
+* 📖: документация либо статья
+* 🛠: онлайн-инструмент / инструмент тестирования
+* 📹: медиа или видеоконтент
 
 ---
 
-## Head
+## Раздел заголовка — тег `<head>`
 
-> **Notes:** You can find [a list of everything](https://github.com/joshbuchea/HEAD) that could be found in the `<head>` of an HTML document.
+> **Примечание:** [Список всех элементов](https://github.com/joshbuchea/HEAD), которые могут размещаться в теге `head` HTML-документа.
 
-### Meta tag
+### Метатеги
 
-* [ ] **Doctype:** ![High][high_img] The Doctype is HTML5 and is at the top of all your HTML pages.
+* [ ] **Doctype:** ![Высокий][high_img] Используйте **Doctype** HTML5, подключив его в самой первой строке каждой HTML-страницы.
 
 ```html
 <!-- Doctype HTML5 -->
@@ -53,53 +53,53 @@ Some resources possess an emoticon to help you understand which type of content 
 
 > 📖 [Determining the character encoding - HTML5 W3C](https://www.w3.org/TR/html5/syntax.html#determining-the-character-encoding)
 
-*The next 3 meta tags (Charset, X-UA Compatible and Viewport) need to come first in the head.*
+*Три следующих метатега (Charset, X-UA Compatible и Viewport) должны быть первыми в теге `head`.*
 
-* [ ] **Charset:** ![High][high_img] The charset declared (UTF-8) is declared correctly.
+* [ ] **Кодировка:** ![Высокий][high_img] Объявленная кодировка (UTF-8) задана правильно.
 
 ```html
-<!-- Set character encoding for the document -->
+<!-- Задание кодировки документа -->
 <meta charset="utf-8">
 ```
 
-* [ ] **X-UA-Compatible:** ![Medium][medium_img] The X-UA-Compatible meta tag is present.
+* [ ] **X-UA-Compatible:** ![Средний][medium_img] Метатег `X-UA-Compatible` должен присутствовать.
 
 ```html
-<!-- Instruct Internet Explorer to use its latest rendering engine -->
+<!-- Указание использовать наиболее новый доступный режим отображения для Internet Explorer -->
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 ```
 
 > 📖 [Specifying legacy document modes (Internet Explorer)](https://msdn.microsoft.com/en-us/library/jj676915(v=vs.85).aspx)
 
-* [ ] **Viewport:** ![High][high_img] The viewport is declared correctly.
+* [ ] **Viewport:** ![Высокий][high_img] `viewport` должен быть правильно объявлен.
 
 ```html
-<!-- Viewport for responsive web design -->
+<!-- Viewport для адаптивных веб-страниц -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
 
-* [ ] **Title:** ![High][high_img] A title is used on all pages (SEO: No more than 65 characters, website title included).
+* [ ] **Title:** ![Высокий][high_img] Тег `title` используется на всех страницах (SEO: не более 65 символов, включая название сайта).
 
 ```html
-<!-- Document Title -->
-<title>Page Title less than 65 characters</title>
+<!-- Заголовок документа -->
+<title>Заголовок страницы, занимающий не более 65 символов</title>
 ```
 
-> 📖 [Title - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title)
+> 📖 [Title - HTML | MDN](https://developer.mozilla.org/ru/docs/Web/HTML/Element/title)
 
-* [ ] **Description:** ![High][high_img] A meta description is provided, it is unique and doesn't possess more than 150 characters.
+* [ ] **Description:** ![Высокий][high_img] Метаописание (`description`) существует, является уникальным и содержит не более 150 символов.
 
 ```html
-<!-- Meta Description -->
-<meta name="description" content="Description of the page less than 150 characters">
+<!-- Метаописание -->
+<meta name="description" content="Описание страницы, содержащее не более 150 символов">
 ```
 
-* [ ] **Favicons:** ![Medium][medium_img] Each favicon has been created and displays correctly. If you have only a `favicon.ico`, put it at the root of your site. Normally you won't need to use any markup. However, it's still good practice to link to it using the example below. Today, **PNG format is recommended** over `.ico` format (dimensions: 32x32px).
+* [ ] **Фавиконки:** ![Средний][medium_img] Каждый значок-favicon создан и отображается корректно. Если используется только `favicon.ico`, то он должен быть помещен в корневой каталог сайта. Обычно никакой дополнительной разметки не требуется, но тем не менее, хорошей практикой является явное указание пути к файлу в атрибуте `href` — как в примере ниже. Как более современный вариант, ** рекомендуется использовать формат PNG** вместо формата `.ico`(размеры: 32x32px).
 
 ```html
-<!-- Standard favicon -->
+<!-- Стандартная фавиконка -->
 <link rel="icon" type="image/x-icon" href="https://example.com/favicon.ico">
-<!-- Recommended favicon format -->
+<!-- Рекомендуемый формат фавиконки -->
 <link rel="icon" type="image/png" href="https://example.com/favicon.png">
 ```
 
@@ -109,7 +109,7 @@ Some resources possess an emoticon to help you understand which type of content 
 > * 📖 [Favicons, Touch Icons, Tile Icons, etc. Which Do You Need? - CSS Tricks](https://css-tricks.com/favicon-quiz/)
 > * 📖 [PNG favicons - caniuse](https://caniuse.com/#feat=link-icon-png)
 
-* [ ] **Apple Touch Icon:** ![Low][low_img] Apple touch favicon apple-mobile-web-app-capable are present. *(Create your Apple Icon file with at least 200x200px dimension to support all dimensions that you may need)*
+* [ ] **Apple Touch Icon:** ![Low][low_img] Присутствует фавиконка для тач-устройств Аpple apple-mobile-web-app-capable. *(Создайте файл иконки для устройств Apple, имеющий размер как минимум 200x200px — для поддержки всех размеров, которые могут потребоваться)*
 
 ```html
 <!-- Apple Touch Icon -->
@@ -118,22 +118,22 @@ Some resources possess an emoticon to help you understand which type of content 
 
 > 📖 [Configuring Web Applications](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html)
 
-* [ ] **Canonical:** ![Medium][medium_img] Use `rel="canonical"` to avoid duplicate content.
+* [ ] **Canonical:** ![Средний][medium_img] Используйте `rel="canonical"`, чтобы избежать дублирования контента.
 
 ```html
-<!-- Helps prevent duplicate content issues -->
+<!-- Помогает предотвратить дублирование контента -->
 <link rel="canonical" href="http://example.com/2017/09/a-new-article-to-red.html">
 ```
 
-### HTML tags
+### HTML-теги
 
-* [ ] **Language tag:** ![High][high_img] The language tag of your website is specified and related to the language of the current page.
+* [ ] **Атрибут lang:** ![Высокий][high_img] Языковой атрибут `lang` используется и соответствует языку, используемому на данной странице.
 
 ```html
 <html lang="en">
 ```
 
-* [ ] **Direction tag:** ![Medium][medium_img] The direction of lecture is specified on the body tag (It can be used on another HTML tag).
+* [ ] **Атрибут dir:** ![Средний][medium_img] Направление отображения текста задано с помощью атрибута `dir` тега `body` (атрибут `dir` можно использовать и в других HTML-тегах).
 
 ```html
 <html dir="rtl">
@@ -141,29 +141,29 @@ Some resources possess an emoticon to help you understand which type of content 
 
 > 📖 [dir - HTML | MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir)
 
-* [ ] **Alternate language:** ![Low][low_img] The language tag of your website is specified and related to the language of the current page.
+* [ ] **Альтернативный язык:** ![Низкий][low_img] Указан альтернативный язык, соответствующий языку текущей страницы.
 
 ```html
 <link rel="alternate" href="https://es.example.com/" hreflang="es">
 ```
 
-* [ ] **Conditional comments:** ![Low][low_img] Conditional comments are present for IE if needed.
+* [ ] **Условные комментарии:** ![Низкий][low_img] Conditional comments are present for IE if needed.
 
 > 📖 [About conditional comments (Internet Explorer) - MSDN - Microsoft](https://msdn.microsoft.com/en-us/library/ms537512(v=vs.85).aspx)
 
-* [ ] **RSS feed:** ![Low][low_img] If your project is a blog or has articles, an RSS link was provided.
+* [ ] **RSS-лента:** ![Низкий][low_img] Если сайт является блогом или используется для размещения статей, предусмотрена ссылка на RSS.
 
-* [ ] **CSS Critical:** ![Medium][medium_img] The CSS critical (or "above the fold") collects all the CSS used to render the visible portion of the page. It is embedded before your principal CSS call and between `<style></style>` in a single line (minified).
+* [ ] **Критичный CSS:** ![Средний][medium_img] Критический CSS (элементы, показываемые в видимой части экрана — "above the fold") включает в себя CSS, использующийся для отображения видимой части страницы. Он встроен до вызова основного CSS между тегами `<style></style>` в одну строку (минифицирован).
 
 > 🛠 [Critical by Addy Osmani on Github](https://github.com/addyosmani/critical)
 
-* [ ] **CSS order:** ![High][high_img] All CSS files are loaded before any JavaScript files in the `<head>`. (Except the case where sometimes JS files are loaded asynchronously on top of your page).
+* [ ] **CSS order:** ![Высокий][high_img] Все CSS-файлы загружаются до любого из JavaScript-файлов в `<head>`. (Кроме случая, когда JS-файлы загружаются асинхронно вверху страницы).
 
-### Social meta
+### Метатеги для социальных сетей
 
-***Facebook OG*** and ***Twitter Cards*** are, for any website, highly recommended. The other social media tags can be considered if you target a particular presence on those and want to ensure the display.
+Крайне рекомендуется использовать ***Facebook OG*** и ***Twitter Cards*** на любом сайте. Другие метатеги могут быть использованы, если вы намерены присутствовать в других социальных медиа и важно обеспечить отображение.
 
-* [ ] **Facebook Open Graph:** ![Low][low_img] All Facebook Open Graph (OG) are tested and no one is missing or with a false information. Images need to be at least 600 x 315 pixels, 1200 x 630 pixels recommended.
+* [ ] **Facebook Open Graph:** ![Низкий][low_img] Разметка Facebook Open Graph (OG) протестирована, присутствует на всех страницах и содержит верную информацию. Размер изображений — минимум 600 x 315 пикселей, рекомендованный размер — 1200 x 630 пикселей.
 
 ```html
 <meta property="og:type" content="website">
@@ -176,9 +176,9 @@ Some resources possess an emoticon to help you understand which type of content 
 ```
 
 > * 📖 [A Guide to Sharing for Webmasters](https://developers.facebook.com/docs/sharing/webmasters/)
-> * 🛠 Test your page with the [Facebook OG testing](https://developers.facebook.com/tools/debug/)
+> * 🛠 Протестируйте вашу страницу с помощью [Отладчика перепостов](https://developers.facebook.com/tools/debug/)
 
-* [ ] **Twitter Card:** ![Low][low_img]
+* [ ] **Twitter Card:** ![Низкий][low_img]
 
 ```html
 <meta name="twitter:card" content="summary">
@@ -191,85 +191,86 @@ Some resources possess an emoticon to help you understand which type of content 
 ```
 
 > * 📖 [Getting started with cards — Twitter Developers](https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started)
-> * 🛠 Test your page with the [Twitter card validator](https://cards-dev.twitter.com/validator)
+> * 🛠 Протестируйте вашу страницу с помощью [Валидатора Twitter card](https://cards-dev.twitter.com/validator)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ обратно к содержанию](#table-of-contents)**
 
 ---
 
 ## HTML
 
-### Best practices
+### Лучшие практики
 
-* [ ] **HTML5 Semantic Elements:** ![High][high_img] HTML5 Semantic Elements are used appropriately (header, section, footer, main...).
+* [ ] **Семантические элементы HTML5:** ![Высокий][high_img] Семантические элементы HTML5 используются соответствующим образом (`header`, `section`, `footer`, `main` и т.д.).
 
-> 📖 [HTML Reference](http://htmlreference.io/)
+> 📖 [Справочник по HTML](http://htmlreference.io/)
 
-* [ ] **Error pages:** ![High][high_img] Error 404 page and 5xx exist. Remember that the 5xx error page needs to have his CSS integrated (no external call on the current server).
+* [ ] **Страницы ошибок:** ![Высокий][high_img] Страницы 404 и 5xx ошибок должны существовать. Помните, что страница ошибок 5xx должна иметь встроенный CSS (без внешнего вызова на текущем сервере).
 
-* [ ] **Noopener:** ![Medium][medium_img] In case you are using external links with `target="_blank"`, your link should have a `rel="noopener"` attribute to prevent tab nabbing. If you need to support older versions of Firefox, use `rel="noopener noreferrer"`.
+* [ ] **Noopener:** ![Средний][medium_img] В случае использования внешних ссылок с `target="_blank"` ссылкам также необходимо добавить атрибут `rel="noopener"`, чтобы предотвратить уязвимость !! в to prevent tab nabbing. Если необходима поддержка старых версий Firefox, используйте `rel="noopener noreferrer"`.
 
-> 📖 [About rel=noopener](https://mathiasbynens.github.io/rel-noopener/)
+> 📖 [Про rel=noopener](https://mathiasbynens.github.io/rel-noopener/)
 
-* [ ] **Clean up comments:** ![Low][low_img] Unnecessary code needs to be removed before sending the page to production.
+* [ ] **Удалите лишние комментарии:** ![Низкий][low_img] Ненужный код должен быть удален перед запуском сайта.
 
-### HTML testing
+### Валидация HTML
 
-* [ ] **W3C compliant:** ![High][high_img] All pages need to be tested with the W3C validator to identify possible issues in the HTML code.
+* [ ] **W3C-совместимость:** ![Высокий][high_img] Все страницы должны быть протестированы с помощью валидатора W3C для выявления возможных проблем в коде.
 
 > 🛠 [W3C validator](https://validator.w3.org/)
 
-* [ ] **HTML Lint:** ![High][high_img] I use tools to help me analyze any issues I could have on my HTML code.
+* [ ] **HTML Lint:** ![Высокий][high_img] Я использую инструменты, помогающие проанализировать возможные проблемы с HTML-кодом.
 
 > 🛠 [Dirty markup](https://dirtymarkup.com/)
 
-* [ ] **Desktop Browsers:** ![High][high_img] All pages were tested on all current desktop browsers (Safari, Firefox, Chrome, Internet Explorer, EDGE...).
-* [ ] **Mobile Browsers:**  ![High][high_img] All pages were tested on all current mobile browsers (Native browser, Chrome, Safari...).
+* [ ] **Десктопные браузеры:** ![Высокий][high_img] Все страницы протестированы во всех современных десктопных браузерах (Safari, Firefox, Chrome, Internet Explorer, EDGE и т.д.).
 
-* [ ] **Link checker:** ![High][high_img] There are no broken links in my page, verify that you don't have any 404 error.
+* [ ] **Мобильные браузеры:**  ![Высокий][high_img] Все страницы протестированы во всех современных мобильных браузерах (системный браузер, Chrome, Safari и т.д.).
 
-> 🛠 [W3C Link Checker](https://validator.w3.org/checklink)
+* [ ] **Проверка ссылок:** ![Высокий][high_img] На всех страницах не должно быть «битых» ссылок. Убедитесь, что на сайте нет ошибок 404.
 
-* [ ] **Adblockers test:** ![Medium][medium_img] Your website shows your content correctly with adblockers enabled (You can provide a message encouraging people to disable their adblocker).
+> 🛠 [Сервис проверки ссылок W3C](https://validator.w3.org/checklink)
 
-- [ ] **Pixel perfect:** ![High][high_img] Pages are close to pixel perfect. Depending on the quality of the creatives, you may not be 100% accurate, but your page needs to be close to your template.
+* [ ] **Тестирование блокировщиков рекламы:** ![Средний][medium_img] Веб-сайт должен корректно отображать контент при включенном блокировщике рекламы (вы можете также предусмотреть сообщение, побуждающее пользователя отключить блокировщик для максимально корректного отображения страниц).
 
-> [Pixel Perfect - Chrome Extension](https://chrome.google.com/webstore/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi?hl=en)
+- [ ] **Pixel perfect:** ![Высокий][high_img] Страницы сверстаны практически пиксель в пиксель, внешне максимально приближены к макетам. Необязательно добиваться 100-процентного совпадения, однако верстка должна быть максимально близка к исходному макету.
 
-**[⬆ back to top](#table-of-contents)**
+> [Pixel Perfect - расширение для Chrome](https://chrome.google.com/webstore/detail/perfectpixel-by-welldonec/dkaagdgjmgdmbnecmcefdhjekcoceebi?hl=ru)
+
+**[⬆ обратно к содержанию](#table-of-contents)**
 
 ---
 
-## Webfonts
+## Веб-шрифты
 
-* [ ] **Webfont format:** ![High][high_img] WOFF, WOFF2 and TTF are supported by all modern browsers.
+* [ ] **Форматы веб-шрифтов:** ![Высокий][high_img] Форматы WOFF, WOFF2 and TTF поддерживаются всеми современными браузерами.
 
 > * 📖 [WOFF - Web Open Font Format - Caniuse](https://caniuse.com/#feat=woff).
 > * 📖 [WOFF 2.0 - Web Open Font Format - Caniuse](https://caniuse.com/#feat=woff2).
 > * 📖 [TTF/OTF - TrueType and OpenType font support](https://caniuse.com/#feat=ttf)
 > * 📖 [Using @font-face - CSS-Tricks](https://css-tricks.com/snippets/css/using-font-face/)
 
-* [ ] **Webfont size:** ![High][high_img] Webfont sizes don't exceed 2 MB (all variants included).
+* [ ] **Размер файла веб-шрифтов:** ![Высокий][high_img] Размер веб-шрифтов не должен превышать 2 МБ (включая все начертания).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ обратно к содержанию](#table-of-contents)**
 
 ---
 
 ## CSS
 
-> **Notes:** Take a look at [CSS guidelines](https://cssguidelin.es/) and [Sass Guidelines](https://sass-guidelin.es/) followed by most  Front-End developers. If you have a doubt about CSS properties, you can visit [CSS Reference](http://cssreference.io/).
+> **Примечание:** Обратите внимание на [рекомендации по CSS](https://cssguidelin.es/) и [рекомендации по Sass](https://sass-guidelin.es/), которых придерживается большинство фронтенд-разработчиков. Если у вас появились сомнения насчет какого-либо CSS-свойства, можете использовать [справочник CSS](http://cssreference.io/).
 
-* [ ] **Responsive Web Design:** ![High][high_img] The website is using responsive web design.
-* [ ] **CSS Print:** ![Medium][medium_img] A print stylesheet is provided and is correct on each page.
-* [ ] **Preprocessors:** ![Medium][medium_img] Your page is using a CSS preprocessor ([Sass](http://sass-lang.com/) is preferred).
-* [ ] **Unique ID:** ![High][high_img] If IDs are used, they are unique to a page.
-* [ ] **Reset CSS:** ![High][high_img] A CSS reset (reset, normalize or reboot) is used and up to date. *(If you are using a CSS Framework like Bootstrap or Foundation, a Normalize is already included into it.)*
+* [ ] **Адаптивный веб-дизайн:** ![Высокий][high_img] На сайте должна использоваться адаптивная верстка.
+* [ ] **CSS печатной версии:** ![Средний][medium_img] Для каждой страницы используются корректные CSS-стили для печати.
+* [ ] **Препроцессоры:** ![Средний][medium_img] Your page is using a CSS preprocessor ([Sass](http://sass-lang.com/) предпочтителен).
+* [ ] **Уникальные идентификаторы:** ![Высокий][high_img] Если используются идентификаторы (`id`), то в пределах страницы они должны быть уникальными.
+* [ ] **Сброс стилей:** ![Высокий][high_img] Используется современный вариант сброса CSS-стилей. *(Если вы используете CSS-фреймворк, такой как Bootstrap или Foundation, Normalize уже включен в него.)*
 
 > * 📖 [Reset.css](https://meyerweb.com/eric/tools/css/reset/)
 > * 📖 [Normalize.css](https://necolas.github.io/normalize.css/)
 > * 📖 [Reboot](https://getbootstrap.com/docs/4.0/content/reboot/)
 
-* [ ] **JS prefix:** ![Low][low_img] All classes (or id- used in JavaScript files) begin with **js-** and are not styled into the CSS files.
+* [ ] **JS-префиксы:** ![Низкий][low_img] Все классы и идентификаторы, используемые в JS-файлах, начинаются с **js-** и не стилизуются в CSS-файлах.
 
 ```html
 <div id="js-slider" class="my-slider">
@@ -277,331 +278,333 @@ Some resources possess an emoticon to help you understand which type of content 
 <div id="id-used-by-cms" class="js-slider my-slider">
 ```
 
-* [ ] **CSS embed or line:** ![High][high_img] Avoid at all cost the use of CSS embed or inline: only used for valid reasons (ex: background-image for slider, CSS critical).
-* [ ] **Vendor prefixes:** ![High][high_img] CSS vendor prefixes are used and are generated accordingly with your browser support compatibility.
+* [ ] **Встроенные (embedded) и инлайновые стили:** ![Высокий][high_img] Любой ценой избегайте использования встроенного или инлайнового CSS: использовать их допустимо только по действительно веским причинам (например, `background-image` для слайдера, критический CSS).
+* [ ] **Vendor prefixes:** ![Высокий][high_img] CSS vendor prefixes are used and are generated accordingly with your browser support compatibility.
 
 > 🛠 [Autoprefixer CSS online](https://autoprefixer.github.io/)
 
-### Performance
+### Производительность
 
-- [ ] **Concatenation:** ![High][high_img] CSS files are concatenated in a single file. *(Not for HTTP/2)*
-- [ ] **Minification:** ![High][high_img] All CSS files are minified.
-- [ ] **Non-blocking:** ![Medium][medium_img] CSS files need to be non-blocking to prevent the DOM from taking time to load.
+- [ ] **Объединение:** ![Высокий][high_img] Все CSS-файлы объединены в один файл. *(Не для HTTP/2)*
+- [ ] **Минификация:** ![Высокий][high_img] Все CSS-файлы должны быть минифицированы.
+- [ ] **Неблокирующий CSS:** ![Средний][medium_img] CSS-файлы должны быть неблокирующими, чтобы не задерживать загрузку DOM.
 
 > * 📖 [loadCSS by filament group](https://github.com/filamentgroup/loadCSS)
 > * 📖 [Example of preload CSS using loadCSS](https://gist.github.com/thedaviddias/c24763b82b9991e53928e66a0bafc9bf)
 
-- [ ] **Unused CSS:** ![Low][low_img] Remove unused CSS.
+- [ ] **Неиспользуемый CSS:** ![Низкий][low_img] Избавьтесь от неиспользуемого CSS-кода.
 
 > * 🛠 [UnCSS Online](https://uncss-online.com/) 🛠
 > * 🛠 [PurifyCSS](https://github.com/purifycss/purifycss)
 > * 🛠 [Chrome DevTools Coverage](https://developers.google.com/web/updates/2017/04/devtools-release-notes#coverage)
 
 
-### CSS testing
+### Тестирование CSS
 
-* [ ] **Stylelint:** ![High][high_img] All CSS or SCSS files are without any errors.
+* [ ] **Линтинг (предотвращение ошибок) CSS:** ![Высокий][high_img] Все CSS или SCSS файлы не должны содержать ошибок.
 
-> * 🛠 [stylelint, a CSS linter](https://stylelint.io/)
-> * 📖 [Sass guidelines](https://sass-guidelin.es/)
+> * 🛠 [stylelint, линтер CSS](https://stylelint.io/)
+> * 📖 [Справочник по Sass](https://sass-guidelin.es/)
 
-* [ ] **Responsive web design:** ![High][high_img] All pages were tested at the following breakpoints: 320px, 768px, 1024px (can be more / different according to your analytics).
+* [ ] **Адаптивный веб-дизайн:** ![Высокий][high_img] Все страницы были протестированы на следующих контрольных точках: 320px, 768px, 1024px (их может быть и больше, либо они могут быть другими в зависимости от требований).
 
-* [ ] **CSS Validator:** ![Medium][medium_img] The CSS was tested and pertinent errors were corrected.
+* [ ] **Валидатор CSS:** ![Средний][medium_img] CSS протестирован, выявленные ошибки исправлены.
 
-> 🛠 [CSS Validator](https://jigsaw.w3.org/css-validator/)
+> 🛠 [Валидатор CSS](https://jigsaw.w3.org/css-validator/)
 
-* [ ] **Reading direction:** ![High][high_img] All pages need to be tested for LTR and RTL languages if they need to be supported.
+* [ ] **Направление чтения:** ![Высокий][high_img] Все страницы должны быть протестированы для языков с направлением чтения слева направо (LTR) и справа налево (RTL), если необходима поддержка этих языков.
 
 > * 📖 [Building RTL-Aware Web Apps & Websites: Part 1 | Mozilla Hacks](https://hacks.mozilla.org/2015/09/building-rtl-aware-web-apps-and-websites-part-1/)
 > * 📖 [Building RTL-Aware Web Apps & Websites: Part 2 | Mozilla Hacks](https://hacks.mozilla.org/2015/10/building-rtl-aware-web-apps-websites-part-2/)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ обратно к содержанию](#table-of-contents)**
 
 ---
 
-## Images
+## Изображения
 
-> **Notes:** For a complete understanding of image optimization, check the free ebook **[Essential Image Optimization](https://images.guide/)** from Addy Osmani.
+> **Примечание:** Для полного понимания оптимизации изображений советую эту бесплатную электронную книгу — **[Essential Image Optimization](https://images.guide/)** авторства Addy Osmani.
 
-### Best practices
+### Лучшие практики
 
-* [ ] **Optimization:** ![High][high_img] All images are optimized to be rendered in the browser. WebP format could be used for critical pages (like Homepage).
+* [ ] **Оптимизация:** ![Высокий][high_img] Все изображения должны быть оптимизированы для отображения в браузере. Для ключевых страниц сайта (таких, как главная страница) можно использовать формат WebP.
 
 > * 🛠 [Imagemin](https://github.com/imagemin/imagemin)
-> * 🛠 Use [ImageOptim](https://imageoptim.com/) to optimise your images for free.
+> * 🛠 Используйте бесплатный инструмент [ImageOptim](https://imageoptim.com/) для оптимизации изображений.
 
-* [ ] **Retina:** ![Low][low_img] You provide layout images x2 or 3x, support retina display.
-* [ ] **Sprite:** ![Medium][medium_img] Small images are in a sprite file (in the case of icons, they can be in an SVG sprite image).
-* [ ] **Width and Height:** ![High][high_img] All `<img>` have height and width set (Don't specify px or %).
+* [ ] **Retina:** ![Низкий][low_img] Предусмотрены изображения в увеличенном разрешении x2 или 3x для поддержки Retina-дисплеев.
+* [ ] **Спрайты:** ![Средний][medium_img] Маленькие изображения собраны в спрайт (иконки могут быть SVG-спрайтом).
+* [ ] **Ширина и высота:** ![Высокий][high_img] Для всех тегов `<img>` установлена ширина и высота (без указания px или %).
 
-> ***Note:*** Lots of developers assume that width and height are not compatible with responsive web design. It's absolutely not the case.
+> ***Примечание:*** Многие разработчики считают, что использование ширины и высоты несовместимо с адаптивным веб-дизайном. Это абсолютно не так.
 
-* [ ] **Alternative text:** ![High][high_img] All `<img>` have an alternative text which describe the image visually.
-* [ ] **Lazy loading:** ![Medium][medium_img] Images are lazyloaded (A noscript fallback is always provided).
+* [ ] **Альтернативный текст:** ![Высокий][high_img] У всех тегов `<img>` есть альтернативный текст, описывающий изображение.
+* [ ] **Ленивая загрузка (Lazy loading):** ![Средний][medium_img] Изображения используют «ленивую» отложенную загрузку (но обязательно нужно предусмотреть резервный вариант отображения на тот случай, если в браузере отключен JS).
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ обратно к содержанию](#table-of-contents)**
 
 ---
 
 ## JavaScript
 
-### Best practices
+### Лучшие практики
 
-* [ ] **JavaScript Inline:** ![High][high_img] You don't have any JavaScript code inline (mixed with your HTML code).
-* [ ] **Concatenation:** ![High][high_img] JavaScript files are concatenated.
-* [ ] **Minification:** ![High][high_img] JavaScript files are minified (you can add the `.min` suffix).
+* [ ] **Инлайновый JavaScript:** ![Высокий][high_img] Нет инлайнового JavaScript-кода (смешанного с HTML-кодом).
+* [ ] **Объединение JS-файлов:** ![Высокий][high_img] JS-файлы объединены.
+* [ ] **Минификация:** ![Высокий][high_img] JS-файлы минифицированы (можно добавить к названию файла суффикс `.min`).
 
-> [Minify Resources (HTML, CSS, and JavaScript)](https://developers.google.com/speed/docs/insights/MinifyResources)
+> [Сократите объем ресурсов (HTML, CSS и JavaScript)](https://developers.google.com/speed/docs/insights/MinifyResources)
 
-* [ ] **JavaScript security:**
+* [ ] **Безопасность JavaScript:**
 
 > [Guidelines for Developing Secure Applications Utilizing JavaScript](https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet#Guidelines_for_Developing_Secure_Applications_Utilizing_JavaScript)*
 
-* [ ] **Non-blocking:** ![Medium][medium_img] JavaScript files are loaded asynchronously using `async` or deferred using `defer` attribute.
+* [ ] **Неблокирующий JS:** ![Средний][medium_img] JavaScript-файлы загружаются асинхронно, с использованием `async`, либо отложенно, с использованием атрибута `defer`.
 
-> 📖 [Remove Render-Blocking JavaScript](https://developers.google.com/speed/docs/insights/BlockingJS)
+> 📖 [Удалите JavaScript-код, препятствующий показу страницы](https://developers.google.com/speed/docs/insights/BlockingJS)
 
-* [ ] **Modernizr:** ![Low][low_img] If you need to target some specific features you can use a custom Modernizr to add classes in your `<html>` tag.
+* [ ] **Modernizr:** ![Низкий][low_img] Чтобы проверить поддержку той или иной технологии в браузере, можно настроить и использовать библиотеку Modernizr. Modernizr проведет тесты и добавит соответствующие классы в тег `<html>` в зависимости от браузера, позволяя «откатить» функции для старых версий браузеров.
 
 > 🛠 [Customize your Modernizr](https://modernizr.com/download?setclasses)
 
-### JavaScript testing
+### Тестирование JavaScript
 
-* [ ] **ESLint:** ![High][high_img] No errors are flagged by ESLint (based on your configuration or standards rules).
+* [ ] **ESLint:** ![Высокий][high_img] ESLint не должен обнаружить никаких ошибок (на основании ваших настроек или стандартных правил).
 
 > * 📖 [ESLint - The pluggable linting utility for JavaScript and JSX](https://eslint.org/)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ обратно к содержанию](#table-of-contents)**
 
 ---
 
-## Security
+## Безопасность
 
-### Scan and check your web site
+### Проверьте безопасность вашего сайта
 
 > * [securityheaders.io](https://securityheaders.io/)
-> * [Observatory by Mozilla](https://observatory.mozilla.org/)
+> * [Observatory от Mozilla](https://observatory.mozilla.org/)
 > * [ASafaWeb - Automated Security Analyser for ASP.NET Websites](https://asafaweb.com/)
 
-### Best practices
+### Лучшие практики
 
-* [ ] **HTTPS:** ![Medium][medium_img] HTTPS is used on every pages and for all external content (plugins, images...).
+* [ ] **HTTPS:** ![Средний][medium_img] HTTPS используется на всех страницах и для всего внешнего содержимого (плагины, изображения и т.д.).
 
 > * 🛠 [Let's Encrypt - Free SSL/TLS Certificates](https://letsencrypt.org/)
 > * 🛠 [Free SSL Server Test](https://www.ssllabs.com/ssltest/index.html)
 > * 📖 [Strict Transport Security](http://caniuse.com/#feat=stricttransportsecurity)
 
-* [ ] **HTTP Strict Transport Security (HSTS):** ![Medium][medium_img] The HTTP header is set to 'Strict-Transport-Security'.
+* [ ] **HTTP Strict Transport Security (HSTS):** ![Средний][medium_img] Используется HTTP-заголовок 'Strict-Transport-Security'.
 
 > * 🛠 [Check HSTS preload status and eligibility](https://hstspreload.org/)
 > * 📖 [HTTP Strict Transport Security Cheat Sheet - OWASP](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet)
 > * 📖 [Transport Layer Protection Cheat Sheet - OWASP](https://www.owasp.org/index.php/Transport_Layer_Protection_Cheat_Sheet)
 
-* [ ] **Cross Site Request Forgery (CSRF):** ![High][high_img] You are ensure that requests made to your server-side are legitimate and originate from your website / app to prevent CSRF attacks.
+* [ ] **Межсайтовая подделка запроса — Cross Site Request Forgery (CSRF):** ![Высокий][high_img] Убедитесь, что запросы к серверу не являются нежелательными и отправляются с вашего сайта/приложения, чтобы исключить возможность CSRF-атак.
 
 > 📖 [Cross-Site Request Forgery (CSRF) Prevention Cheat Sheet  - OWASP](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)_Prevention_Cheat_Sheet)
 
-* [ ] **Cross Site Scripting (XSS):** ![High][high_img] Your page or website is free from XSS possible issues.
+* [ ] **Межсайтовый скриптинг — Cross Site Scripting (XSS):** ![Высокий][high_img] Ваш сайт/веб-страница защищена от возможных XSS-атак.
 
 > * 📖 [XSS (Cross Site Scripting) Prevention Cheat Sheet  - OWASP](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet)
 > * 📖 [DOM based XSS Prevention Cheat Sheet  - OWASP](https://www.owasp.org/index.php/DOM_based_XSS_Prevention_Cheat_Sheet)
 
-* [ ] **Content Type Options** ![Medium][medium_img] Prevents Google Chrome and Internet Explorer from trying to mime-sniff the content-type of a response away from the one being declared by the server.
+* [ ] **Заголовок Content Type Options** ![Средний][medium_img] Предотвращает попытки Google Chrome и Internet Explorer использовать MIME-сниффер для определения типа содержимого ответа, отличающегося от типов, передаваемых сервером.
 
 > * 📖 [X-Content-Type-Options - Scott Helme](https://scotthelme.co.uk/hardening-your-http-response-headers/#x-content-type-options)
 
-* [ ] **X-Frame-Options (XFO)** ![Medium][medium_img] Protects your visitors against clickjacking attacks.
+* [ ] **Заголовок X-Frame-Options (XFO)** ![Средний][medium_img] Защищает пользователей от кликджекинг-атак.
 
 > * 📖 [X-Frame-Options - Scott Helme](https://scotthelme.co.uk/hardening-your-http-response-headers/#x-frame-options)
 > * 📖 [RFC7034 - HTTP Header Field X-Frame-Options](https://tools.ietf.org/html/rfc7034)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ обратно к содержанию](#table-of-contents)**
 
 ---
 
-## Performance
+## Производительность
 
-### Best practices
+### Лучшие практики
 
-- [ ] **Weight page:** ![High][high_img] The weight of each page is between 0 and 500 KB.
+- [ ] **Размер страниц:** ![Высокий][high_img] Размер каждой из страниц сайта — от 0 до 500 KB.
 
 > * 🛠 [Website Page Analysis](https://tools.pingdom.com)
 > * 📖 [Size Limit: Make the Web lighter](https://evilmartians.com/chronicles/size-limit-make-the-web-lighter)
 
-- [ ] **Minified:** ![Medium][medium_img] Your HTML is minified.
-> 🛠 [W3C Validator](https://validator.w3.org/)
+- [ ] **Минификация HTML:** ![Средний][medium_img] HTML-код минифицирован.
+> 🛠 [Валидатор W3C](https://validator.w3.org/)
 
-* [ ] **Lazy loading:** ![Medium][medium_img] Images, scripts and CSS need to be lazy loaded to improve the response time of the current page (See details in their respective sections).
+* [ ] **Ленивая загрузка (lazy loading):** ![Средний][medium_img] Изображения, скрипты и CSS используют «ленивую» загрузку для уменьшения времени загрузки страницы (подробности — в соответствующих разделах).
 
-* [ ] **Cookie size:** If you are using cookies be sure each cookie doesn't exceed 4096 bytes and your domain name don't have more than 20 cookies.
+* [ ] **Размер куки:** Если вы используете куки, убедитесь, что размер каждого куки не превышает 4096 байт, и от одного домена установлено не более 20 куков.
 
 > * 📖 [Cookie specification: RFC 6265](https://tools.ietf.org/html/rfc6265)
-> * 📖 [Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
+> * 📖 [Куки HTTP](https://developer.mozilla.org/ru/docs/Web/HTTP/Куки)
 > * 🛠 [Browser Cookie Limits](http://browsercookielimits.squawky.net/)
 
 ### Preparing upcoming requests
 
 > 📖 [Explanation of the following techniques](https://css-tricks.com/prefetching-preloading-prebrowsing/)
 
-* [ ] **DNS resolution:** ![Low][low_img] DNS of third-party services that may be needed are resolved in advance during idle time using `dns-prefetch`.
+* [ ] **Разрешение DNS-имен, атрибут `prefetch`** ![Низкий][low_img] Доменные имена сторонних ресурсов, которые могут понадобится, загружаются заранее с помощью `dns-prefetch`.
 
 ```html
 <link rel="dns-prefetch" href="https://example.com">
 ```
 
-* [ ] **Preconnection:** ![Low][low_img] DNS lookup, TCP handshake and TLS negociation with services that will be needed soon is done in advance during idle time using `preconnect`.
+* [ ] **Атрибут `preconnect`:** ![Низкий][low_img] DNS-запрос, рукопожатие TCP и согласование TLS с ресурсами, которые вскоре понадобятся, загружаются заранее с помощью `preconnect`.
 
 ```html
 <link rel="preconnect" href="https://example.com">
 ```
 
-* [ ] **Prefetching:** ![Low][low_img] Resources that will be needed soon (e.g. lazy loaded images) are requested in advance during idle time using `prefetch`.
+* [ ] **Атрибут `prefetch`:** ![Низкий][low_img] Ресурсы, которые вскоре понадобятся (такие как изображения, использующие ленивую загрузку), запрашиваются заранее с использованием `prefetch`.
 
 ```html
 <link rel="prefetch" href="image.png">
 ```
 
-* [ ] **Preloading:** ![Low][low_img] Resources needed in the current page (e.g. scripts placed at the end of `<body>`) in advance using `preload`.
+* [ ] **Предзагрузка, атрибут `preload`:** ![Низкий][low_img] Ресурсы, необходимые на данной странице (такие как скрипты, размещенные перед закрывающим `</body>`), загружаются заранее с помощью `preload`.
 
 ```html
 <link rel="preload" href="app.js">
 ```
 
-> 📖 [Difference between prefetch and preload](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)
+> 📖 [Разница между prefetch и preload (англ.)](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)
 
-### Performance testing
+### Тестирование производительности
 
-* [ ] **Google PageSpeed:** ![High][high_img] All your pages were tested (not only the homepage) and have a score of at least 90/100.
+* [ ] **Google PageSpeed:** ![Высокий][high_img] Все страницы протестированы с помощью Google PageSpeed Insights (не только главная страница) и имеют показатель не менее 90/100.
 
 > * 🛠 [Google PageSpeed](https://developers.google.com/speed/pagespeed/insights/)
 > * 🛠 [Test your mobile speed with Google](https://testmysite.withgoogle.com)
 > * 🛠 [WebPagetest - Website Performance and Optimization Test](https://www.webpagetest.org/)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ обратно к содержанию](#table-of-contents)**
 
 ---
 
-## Accessibility
+## Доступность
 
-> **Notes:** You can watch the playlist [A11ycasts with Rob Dodson](https://www.youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g) 📹
+> **Примечание:** Посмотрите видео из плейлиста [A11ycasts with Rob Dodson](https://www.youtube.com/playlist?list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g) 📹
 
-### Best practices
+### Лучшие практики
 
-- [ ] **Progressive enhancement:** ![Medium][medium_img] Major functionality like main navigation and search should work without JavaScript enabled.
+- [ ] **Прогрессивное улучшение:** ![Средний][medium_img] Основные функции, такие как основная навигация и поиск, должны работать без включенного JavaScript.
 
 > 📖 [Enable / Disable JavaScript in Chrome Developer Tools](https://www.youtube.com/watch?v=kBmvq2cE0D8)
 
-- [ ] **Color contrast:** ![Medium][medium_img] Color contrast should at least pass WCAG AA (AAA for mobile).
+- [ ] **Цветовой контраст:** ![Средний][medium_img] Цветовой контраст должен как минимум соотвествовать уровню AA стандарта WCAG (для мобильных устройств — уровню AAA).
 
-> 🛠 [Contrast ratio](https://leaverou.github.io/contrast-ratio/)
+> 🛠 [Контрастность](https://leaverou.github.io/contrast-ratio/)
 
-#### Headings
+#### Заголовки
 
-* [ ] **H1:** ![High][high_img] All pages have an H1 which is not the title of the website.
-* [ ] **Headings:** ![High][high_img] Headings should be used properly in the right order (H1 to H6).
+* [ ] **Заголовок `h1`:** ![Высокий][high_img] Все страницы должны иметь заголовок `h1`, не являющийся названием сайта.
+* [ ] **Заголовки:** ![Высокий][high_img] Заголовки должны использоваться надлежащим образом в правильном порядке (от `h1` до `h6`).
 
-> 📹 [Why headings and landmarks are so important -- A11ycasts #18](https://www.youtube.com/watch?v=vAAzdi1xuUY&index=9&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g)
+> 📹 [Why headings and landmarks are so important — A11ycasts #18](https://www.youtube.com/watch?v=vAAzdi1xuUY&index=9&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g)
 
-#### Landmarks
+#### Роли-ориентиры (ARIA Landmarks) — атрибут `role`
 
-- [ ] **Role banner:** ![High][high_img] `<header>` has `role="banner"`.
-- [ ] **Role navigation:** ![High][high_img] `<nav>` has `role="navigation"`.
-- [ ] **Role main:** ![High][high_img] `<main>` has `role="main"`.
+- [ ] **Роль `banner`:** ![Высокий][high_img] У тега `<header>` атрибут `role` имеет значение `role="banner"`.
+- [ ] **Роль `navigation`:** ![Высокий][high_img] У тега `<nav>` атрибут `role` имеет значение `role="navigation"`.
+- [ ] **Роль `main`:** ![Высокий][high_img] У тега `<main>` атрибут `role` имеет значение `role="main"`.
 
 > 📖 [Using ARIA landmarks to identify regions of a page](https://www.w3.org/WAI/GL/wiki/Using_ARIA_landmarks_to_identify_regions_of_a_page)
 
-### Semantics
+### Семантика
 
-- [ ] **Specific HTML5 input types are used:** ![Medium][medium_img] This is especially important for mobile devices that show customized keypads and widgets for different types.
+- [ ] **Используются специальные типы ввода HTML5:** ![Средний][medium_img] Это особенно важно для мобильных устройств, которые показывают различные клавиатуры и виджеты для разных типов ввода.
 
 > 📖 [Mobile Input Types](http://mobileinputtypes.com/)
 
-### Form
+### Формы
 
-* [ ] **Label:** ![High][high_img] A label is associated with each input form element. In case a label can't be displayed, use `aria-label` instead.
+* [ ] **Метки (`label`):** ![Высокий][high_img] Метка `label` связана с каждым элементом `input` формы. Если метка не может быть отображена, используйте вместо нее атрибут `aria-label`.
 
 > 📖 [Using the aria-label attribute - MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_aria-label_attribute)
 
-### Accessibility testing
+### Проверка доступности
 
-* [ ] **Accessibility standards testing:** ![High][high_img] Use the WAVE tool to test if your page respects the accessibility standards.
+* [ ] **Проверка стандартов доступности:** ![Высокий][high_img] Используйте инструмент WAVE (Web Accessibility Evaluation Tool), чтобы протестировать, соответствует ли страница стандартам доступности.
 
 > 🛠 [Wave testing](http://wave.webaim.org/)
 
-* [ ] **Keyboard navigation:** ![High][high_img] Test your website using only your keyboard in a previsible order. All interactive elements are reachable and usable.
-* [ ] **Screen-reader:** ![Medium][medium_img] All pages were tested in a screen-reader (VoiceOver, ChromeVox, NVDA or Lynx).
-* [ ] **Focus style:** ![High][high_img] If the focus is disabled, it is replaced by visible state in CSS.
+* [ ] **Навигация с клавиатуры:** ![Высокий][high_img] Протестируйте сайт используя для навигации только клавиатуру. Все интерактивные элементы должны быть доступны и пригодны для использования.
+* [ ] **Скринридеры:** ![Средний][medium_img] Все страницы протестированы в скринридере (VoiceOver, ChromeVox, NVDA или Lynx).
+* [ ] **Стиль фокуса:** ![Высокий][high_img] Если стандартный фокус отключен, вместо этого он должен быть стилизован через CSS.
 
 > 📹 [Managing Focus - A11ycasts #22](https://www.youtube.com/watch?v=srLRSQg6Jgg&index=5&list=PLNYkxOF6rcICWx0C9LVWWVqvHlYJyqw7g)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ обратно к содержанию](#table-of-contents)**
 
 ---
 
 ## SEO
 
-* [ ] **Google Analytics:** ![High][high_img] Google Analytics is installed and correctly configured.
-* [ ] **Headings logic:** ![Medium][medium_img] Heading text helps to understand the content in the current page.
-* [ ] **sitemap.xml:** ![High][high_img] A sitemap.xml exists and was submitted to Google Search Console (previously Google Webmaster Tools).
-* [ ] **robots.txt:** ![High][high_img] The robots.txt is not blocking webpages.
+* [ ] **Google Analytics:** ![Высокий][high_img] Счетчик Google Analytics установлен и правилньно настроен.
+* [ ] **Логика заголовков:** ![Средний][medium_img] Текст заголовка помогает понять содержимое данной страницы.
+* [ ] **sitemap.xml:** ![Высокий][high_img] Файл sitemap.xml существует и представлен в Google Search Console (ранее Google Webmaster Tools).
+* [ ] **robots.txt:** ![Высокий][high_img] Файл robots.txt не блокирует страницы сайта.
 
-> * 🛠 Test your robots.txt with [Google Robots Testing Tool](https://www.google.com/webmasters/tools/robots-testing-tool)
+> * 🛠 Проверьте robots.txt с помощью инструмента [Google Robots Testing Tool](https://www.google.com/webmasters/tools/robots-testing-tool)
 
-* [ ] **Structured Data:** ![High][high_img] Pages using structured data are tested and are without errors. Structured data helps crawlers understand the content in the current page.
+* [ ] **Структурированные данные:** ![Высокий][high_img] Страницы, использующие структурированные данные, протестированы и ошибок не обнаружено. Структурированные данные помогают поисковым роботам понимать содержимое страницы.
 
 > * 📖 [Introduction to Structured Data | Search | Google Developers](https://developers.google.com/search/docs/guides/intro-structured-data)
-> * 🛠 Test your page with the [Structured Data Testing Tool](https://developers.google.com/structured-data/testing-tool/)
+> * 🛠 Протестируйте вашу страницу с помощью этого [инструмента проверки структурированных данных](https://developers.google.com/structured-data/testing-tool/)
 
-* [ ] **Sitemap HTML:** ![Medium][medium_img] An HTML sitemap is provided and is accessible via a link in the footer of your website.
+* [ ] **HTML-карта сайта:** ![Средний][medium_img] HTML-карта сайта существует и доступна по ссылке в футере сайта.
 
-> * 📖 [Sitemap guidelines | Google Support](https://support.google.com/webmasters/answer/183668?hl=en)
-> * 🛠 [Sitemap generator](https://websiteseochecker.com/html-sitemap-generator/)
+> * 📖 [Как создавать и отправлять файлы Sitemap | Google Support](https://support.google.com/webmasters/answer/183668?hl=ru)
+> * 🛠 [Генератор карты сайта](https://websiteseochecker.com/html-sitemap-generator/)
 
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ обратно к содержанию](#table-of-contents)**
 
 ---
 
-## Translation
+## Перевод
 
-The Front-End Checklist is also available in other languages. Thanks for all translators and their awesome work!
+Чек-лист фронтенда также доступен на других языках. Спасибо всем переводчикам за их замечательную работу!
 
 * 🇯🇵 Japanese: [miya0001/Front-End-Checklist](https://github.com/miya0001/Front-End-Checklist)
 
-**[⬆ back to top](#table-of-contents)**
+* ru Russian: [missis-sippi/Front-End-Checklist](https://github.com/missis-sippi/Front-End-Checklist)
+
+**[⬆ обратно к содержанию](#table-of-contents)**
 
 ---
 
-## Contributing
+## Вклад
 
-**Open an issue or a pull request to suggest changes or additions.**
+**Откройте issue или pull request, чтобы предложить изменения или дополнения.**
 
-### Guide
+### Инструкция
 
-The **Front-End Checklist** repository consists of two branches:
+Репозиторий *Чек-листа фронтенда** имеет две ветки:
 
 #### 1. `master`
 
-This branch consists of the `README.md` file that is automatically reflected on the [Front-End Checklist](http://frontendchecklist.com/) website.
+Эта ветка содержит файл `README.md`, который автоматически отображается на сайте [Front-End Checklist](http://frontendchecklist.com/).
 
 #### 2. `develop`
 
-This branch will be used to make some significant changes to the structure, content if needed. It is preferable to use the master branch to fix small errors or add a new item.
+Эта ветка будет использоваться для внесения существенных изменений в структуру и содержимое в случае необходимости. Для исправления небольших ошибок и добавления новых пунктов лучше использовать ветку `master`.
 
-### Contributors
+### Соавторы
 
-Check out all the super awesome [contributors](https://github.com/thedaviddias/frontendchecklist/graphs/contributors).
+Вот список всех наших чудесных [соавторов](https://github.com/thedaviddias/frontendchecklist/graphs/contributors).
 
-## Authors
+## Авторы
 
 **[David Dias](https://github.com/thedaviddias/Front-End-Checklist)**, **[Geoffrey Signorato](https://github.com/geosenna)**, **[Sandeep Ramgolam](https://twitter.com/__Sun__)** and **[Cédric Poilly](https://github.com/CedricPoilly)**.
 
-## License
+## Лицензия
 
 [![CC0](https://i.creativecommons.org/p/zero/1.0/88x31.png)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-**[⬆ back to top](#table-of-contents)**
+**[⬆ обратно к содержанию](#table-of-contents)**
 
 [low_img]: http://res.cloudinary.com/djnyaloac/image/upload/v1508238836/level-checklist-low.png
 [medium_img]: http://res.cloudinary.com/djnyaloac/image/upload/v1508238836/level-checklist-medium.png
